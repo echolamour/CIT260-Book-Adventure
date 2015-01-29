@@ -5,6 +5,7 @@
  */
 package bookadventure;
 
+import bookadventure.model.Game;
 import bookadventure.model.Player;
 
 /**
@@ -17,13 +18,13 @@ public class BookAdventure {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Player playerOne = new Player();
+        Game gameOne = new Game();
         
-        playerOne.setName("Echo Wilkinson");
-        playerOne.setBestTime(25.00);
+        gameOne.setTotalTime(25.00);
+        gameOne.setAttribute("unknown");
         
-        String playerInfo = playerOne.toString();
-        System.out.println(playerInfo);
+        String gameInfo = gameOne.toString();
+        System.out.println(gameInfo);
     }
     
 }
