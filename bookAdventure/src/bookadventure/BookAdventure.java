@@ -5,6 +5,7 @@
  */
 package bookadventure;
 
+import bookadventure.model.Actor;
 import bookadventure.model.Game;
 import bookadventure.model.Location;
 import bookadventure.model.Map;
@@ -24,10 +25,12 @@ public class BookAdventure {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        Actor actorOne = new Actor();
         Map mapOne = new Map();
         Location locationOne = new Location();
         Game gameOne = new Game();
         
+        actorOne.setName(null);
         mapOne.setxCount(xCoordinate);
         mapOne.setyCount(yCoordinate);
         locationOne.setxCoordinate(xCoordinate);
@@ -36,6 +39,8 @@ public class BookAdventure {
         gameOne.setTotalTime(25.00);
         gameOne.setAttribute("unknown");
         
+        String actorInfo = actorOne.toString();
+        System.out.println(actorInfo);
         String mapInfo = mapOne.toString();
         System.out.println(mapInfo);
         String locationInfo = locationOne.toString();
