@@ -7,9 +7,11 @@ package bookadventure;
 
 import bookadventure.model.Actor;
 import bookadventure.model.Game;
+import bookadventure.model.InventoryItem;
 import bookadventure.model.Location;
 import bookadventure.model.Map;
 import bookadventure.model.Player;
+import bookadventure.model.Scene;
 
 
 
@@ -25,11 +27,16 @@ public class BookAdventure {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        Player playerOne = new Player();
         Actor actorOne = new Actor();
         Map mapOne = new Map();
         Location locationOne = new Location();
         Game gameOne = new Game();
+        InventoryItem itemOne = new InventoryItem();
+        Scene sceneOne = new Scene();
         
+        playerOne.setName(null);
+        playerOne.setBestTime(25.00);
         actorOne.setName(null);
         mapOne.setxCount(xCoordinate);
         mapOne.setyCount(yCoordinate);
@@ -38,7 +45,14 @@ public class BookAdventure {
         locationOne.setVisited(null);
         gameOne.setTotalTime(25.00);
         gameOne.setAttribute("unknown");
+        itemOne.setInventoryType(null);
+        itemOne.setQuantityOfItem(2);
+        sceneOne.setDescription(null);
+        sceneOne.setBlocked(true);
+        sceneOne.setAttribute(null);
         
+        String playerInfo = playerOne.toString();
+        System.out.println(playerInfo);
         String actorInfo = actorOne.toString();
         System.out.println(actorInfo);
         String mapInfo = mapOne.toString();
@@ -47,6 +61,10 @@ public class BookAdventure {
         System.out.println(locationInfo);
         String gameInfo = gameOne.toString();
         System.out.println(gameInfo);
+        String itemInfo = itemOne.toString();
+        System.out.println(itemInfo);
+        String sceneInfo = sceneOne.toString();
+        System.out.println(sceneInfo);
     }
     
 }
