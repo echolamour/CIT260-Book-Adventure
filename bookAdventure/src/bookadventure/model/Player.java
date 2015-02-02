@@ -10,15 +10,15 @@ import java.util.Objects;
 
 /**
  *
- * @author Echo
+ * @author Tashakrn9
  */
-public class Player implements Serializable{
+public class Player implements Serializable {
     private String name;
     private double bestTime;
 
     public Player() {
     }
-    
+
     public String getName() {
         return name;
     }
@@ -43,8 +43,8 @@ public class Player implements Serializable{
     @Override
     public int hashCode() {
         int hash = 5;
-        hash = 11 * hash + Objects.hashCode(this.name);
-        hash = 11 * hash + (int) (Double.doubleToLongBits(this.bestTime) ^ (Double.doubleToLongBits(this.bestTime) >>> 32));
+        hash = 83 * hash + Objects.hashCode(this.name);
+        hash = 83 * hash + (int) (Double.doubleToLongBits(this.bestTime) ^ (Double.doubleToLongBits(this.bestTime) >>> 32));
         return hash;
     }
 
@@ -69,6 +69,7 @@ public class Player implements Serializable{
     public void setbestTime(double d) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+    
     
     
 }
