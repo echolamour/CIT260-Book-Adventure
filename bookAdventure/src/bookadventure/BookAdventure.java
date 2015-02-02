@@ -29,7 +29,6 @@ public class BookAdventure {
         Map mapOne = new Map();
         Location locationOne = new Location();
         Game gameOne = new Game();
-        Player playerOne =new Player();
         
         actorOne.setName(null);
         mapOne.setxCount(xCoordinate);
@@ -39,9 +38,6 @@ public class BookAdventure {
         locationOne.setVisited(null);
         gameOne.setTotalTime(25.00);
         gameOne.setAttribute("unknown");
-        playerOne.setName("Kurt Neumiller");
-        playerOne.setbestTime(25.00);
-     
         
         String actorInfo = actorOne.toString();
         System.out.println(actorInfo);
@@ -51,8 +47,6 @@ public class BookAdventure {
         System.out.println(locationInfo);
         String gameInfo = gameOne.toString();
         System.out.println(gameInfo);
-        String playerInfo = playerOne.toString();
-        System.out.println(playerInfo);
     }
     
 }
