@@ -11,27 +11,26 @@ package bookadventure.control;
  */
 public class ProgressControl {
     
-    public double showStats(double total, double time, double complete) {
+    public double showStats(double total, long time, double complete) {
         
         
-        
-        if (total != 5 | 7 | 10) {
+        if (total != 5 && total != 7 && total != 10) {
             return -1;
         }
        
-       if (complete < 0 | > total) {
+       if (complete < 0 || complete > total) {
             return -1;
         }
         
         if (time < 0) {
             return -1;
         }
-            
-                if (complete == 0) {
-            double score = 0;
+         
+       if (complete == 0) {
+            return 0;
                    
-                }
-                double score = (time / ( complete / total)) * 100;
+       }
+       double score = (time / ( complete / total)) * 100;
                 
                 return score;
     }
