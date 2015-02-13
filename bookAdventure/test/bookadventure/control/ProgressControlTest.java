@@ -41,14 +41,14 @@ public class ProgressControlTest {
         
         //input values
         double total = 10.0;
-        double time = 15.0;
+        long time = 15;
         double complete = 3.0;
         
         double expResult = 5000.0;
         ProgressControl instance = new ProgressControl();
         
         double result = instance.showStats(total, time, complete);
-        assertEquals(expResult, result, 5000.0);
+        assertEquals(expResult, result, 0000.0001);
         
         /********************
          * Test case #2
@@ -57,7 +57,7 @@ public class ProgressControlTest {
         
         //input values
          total = 10.0;
-         time = 15.0;
+         time = 15;
          complete = -1.0;
         
          expResult = -1.0;
@@ -66,37 +66,8 @@ public class ProgressControlTest {
          result = instance.showStats(total, time, complete);
         assertEquals(expResult, result, -1.0);
         
-        /********************
-         * Test case #3
-         ********************/
-        System.out.println("\tTest case #3");
-        
-        //input values
-         total = 10.0;
-         time = 15.53;
-         complete = 3.0;
-        
-         expResult = -1.0;
-      
-        
-         result = instance.showStats(total, time, complete);
-        assertEquals(expResult, result, -1.0);
-        
-        /********************
-         * Test case #4
-         ********************/
-        System.out.println("\tTest case #4");
-        
-        //input values
-         total = 10.0;
-         time = 15.0;
-         complete = 'A';
-        
-         expResult = -1.0;
-      
-        
-         result = instance.showStats(total, time, complete);
-        assertEquals(expResult, result, -1.0);
+             
+       
         
         /********************
          * Test case #5
@@ -105,14 +76,14 @@ public class ProgressControlTest {
         
         //input values
          total = 5.0;
-         time = 15.0;
+         time = 15;
          complete = 7.0;
         
          expResult = -1.0;
       
         
          result = instance.showStats(total, time, complete);
-        assertEquals(expResult, result, -1.0);
+        assertEquals(expResult, result, 000.0001);
         
         /********************
          * Test case #6
@@ -121,14 +92,14 @@ public class ProgressControlTest {
         
         //input values
          total = 5.0;
-         time = 15.0;
+         time = 15;
          complete = 3.0;
         
-         expResult = 25000.0;
+         expResult = 2500.0;
       
         
          result = instance.showStats(total, time, complete);
-        assertEquals(expResult, result, 25000.0);
+        assertEquals(expResult, result, 000.0001);
         
         /********************
          * Test case #7
@@ -137,14 +108,14 @@ public class ProgressControlTest {
         
         //input values
          total = 10.0;
-         time = 15.0;
+         time = 15;
          complete = 3.0;
         
          expResult = 5000.0;
       
         
          result = instance.showStats(total, time, complete);
-        assertEquals(expResult, result, 5000.0);
+        assertEquals(expResult, result, 000.0001);
         
         /********************
          * Test case #8
@@ -153,14 +124,14 @@ public class ProgressControlTest {
         
         //input values
          total = 10.0;
-         time = 15.0;
+         time = 15;
          complete = 0.0;
         
          expResult = 0.0;
       
         
          result = instance.showStats(total, time, complete);
-        assertEquals(expResult, result, 0.0);
+        assertEquals(expResult, result, 000.0001);
         
         /********************
          * Test case #9
@@ -169,14 +140,14 @@ public class ProgressControlTest {
         
         //input values
          total = 10.0;
-         time = 15.0;
+         time = 15;
          complete = 10.0;
         
          expResult = 1500.0;
       
         
          result = instance.showStats(total, time, complete);
-        assertEquals(expResult, result, 1500.0);
+        assertEquals(expResult, result, 000.0001);
         
         /********************
          * Test case #10
@@ -185,14 +156,14 @@ public class ProgressControlTest {
         
         //input values
          total = 10.0;
-         time = 0.0;
+         time = 0;
          complete = 3.0;
         
          expResult = 0.0;
       
         
          result = instance.showStats(total, time, complete);
-        assertEquals(expResult, result, 0.0);
+        assertEquals(expResult, result, 000.0001);
         
     }
     
