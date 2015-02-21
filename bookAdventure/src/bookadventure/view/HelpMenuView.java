@@ -11,42 +11,31 @@ import java.util.Scanner;
 
 /**
  *
- * @author Tashakrn9
+ * @author Echo
  */
-public class MainMenuView {
-    
-    private void startNewGame(){
-        GameControl.createNewGame(BookAdventure.getPlayer());
-        
-        GameMenuView gameMenu = new GameMenuView();
-        gameMenu.displayMenu();
+public class HelpMenuView {
+    private void displayGoal(){
+        System.out.println("*** displayGoal function called ***");
     }
     
-    private void displayHelpMenu(){
-        HelpMenuView helpMenu = new HelpMenuView();
-        helpMenu.displayHelpMenu();
+    private void startChat(){
+        System.out.println("*** startChat function called ***");
     }
     
-    private void displayViewMap(){
-        System.out.println("*** displayViewMap function called ***");
-    }
-    
-    private void saveGame(){
-        System.out.println("*** saveGame function called ***");
+    private void displayInventory(){
+        System.out.println("*** displayInventory function called ***");
     }
     
     private final String MENU = "\n"
             + "\n------------------------------------------------------"
-            + "\n| Main Menu                                          |"
+            + "\n| Help Menu                                          |"
             + "\n------------------------------------------------------"
-            + "\nG - Start Game"
-            + "\nH - Getting Help on how to play the game"
-            + "\nV - View Map"
-            + "\nS - Save Game"
-            + "\nQ - Quit Game"
+            + "\nG - Goal of the Game"
+            + "\nA - Ask/Answer Question"
+            + "\nI - List of Inventory Items"
             + "\n-------------------------------------------------------";
     
-    void displayMenu() {
+    void displayHelpMenu() {
         
         char selection = ' ';
         do{
@@ -87,19 +76,14 @@ public class MainMenuView {
     private void doAction(char selection) {
         switch (selection){
             case 'G':
-                this.startNewGame();
+                this.displayGoal();
                 break;
-            case 'H':
-                this.displayHelpMenu();
+            case 'A':
+                this.startChat();
                 break;
-            case 'V':
-                this.displayViewMap();
+            case 'I':
+                this.displayInventory();
                 break;
-            case 'S':
-                this.saveGame();
-                break;
-            case 'Q':
-                return;
             default:
                 System.out.println("\n*** Invalid Selection *** Try Again");
                 break;
