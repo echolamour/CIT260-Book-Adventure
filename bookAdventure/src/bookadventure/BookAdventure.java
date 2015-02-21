@@ -12,6 +12,8 @@ import bookadventure.model.Location;
 import bookadventure.model.Map;
 import bookadventure.model.Player;
 import bookadventure.model.Scene;
+import bookadventure.view.StartProgramView;
+
 
 
 
@@ -20,6 +22,27 @@ import bookadventure.model.Scene;
  * @author Echo
  */
 public class BookAdventure {
+   
+    private static Game currentGame = null;
+    private static Player player = null;
+
+    public static Game getCurrentGame() {
+        return currentGame;
+    }
+
+    public static void setCurrentGame(Game currentGame) {
+        BookAdventure.currentGame = currentGame;
+    }
+
+    public static Player getPlayer() {
+        return player;
+    }
+
+    public static void setPlayer(Player player) {
+        BookAdventure.player = player;
+    }
+    
+    
     private static double xCoordinate;
     private static double yCoordinate;
 
@@ -27,6 +50,8 @@ public class BookAdventure {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        StartProgramView startProgramView = new StartProgramView();
+        startProgramView.startProgram();
         Player playerOne = new Player();
         Actor actorOne = new Actor();
         Map mapOne = new Map();
@@ -65,6 +90,10 @@ public class BookAdventure {
         System.out.println(itemInfo);
         String sceneInfo = sceneOne.toString();
         System.out.println(sceneInfo);
+    }
+
+    private static StartProgramView newStartProgramView() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }
