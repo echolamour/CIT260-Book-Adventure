@@ -5,55 +5,41 @@
  */
 package bookadventure.view;
 
-import bookadventure.BookAdventure;
-import bookadventure.control.GameControl;
 import java.util.Scanner;
 
 /**
  *
  * @author Tashakrn9
  */
-public class MainMenuView {
+public class FightMenuView {
     
-   
-    private void startNewGame(){
-        GameControl.createNewGame(BookAdventure.getPlayer());
-        
-        GameMenuView gameMenu = new GameMenuView();
-        gameMenu.displayMenu();
+     private void displayFight(){
+        System.out.println("*** displayFight function called ***");
     }
     
-    private void displayFightMenu(){
-        FightMenuView  fightMenu = new FightMenuView();
-        fightMenu.displayFightMenu();
+    private void displayRun(){
+        System.out.println("*** displayRun function called ***");
     }
     
-    private void displayHelpMenu(){
-        HelpMenuView helpMenu = new HelpMenuView();
-        helpMenu.displayHelpMenu();
+    private void displayAttack(){
+        System.out.println("*** displayAttack function called ***");
     }
     
-    private void displayViewMap(){
-        System.out.println("*** displayViewMap function called ***");
-    }
-    
-    private void saveGame(){
-        System.out.println("*** saveGame function called ***");
+    private void displayDefend(){
+        System.out.println("*** displayDefend function called ***");
     }
     
     private final String MENU = "\n"
             + "\n------------------------------------------------------"
-            + "\n| Main Menu                                          |"
+            + "\n| Fight Menu                                          |"
             + "\n------------------------------------------------------"
-            + "\nG - Start Game"
-            + "\nF - Display Fight Menu"
-            + "\nH - Getting Help on how to play the game"
-            + "\nV - View Map"
-            + "\nS - Save Game"
-            + "\nQ - Quit Game"
+            + "\nF - Fight"
+            + "\nR - Run"
+            + "\nA - Attack"
+            + "\nD - Defend"
             + "\n-------------------------------------------------------";
     
-    void displayMenu() {
+    void displayFightMenu() {
         
         char selection = ' ';
         do{
@@ -77,7 +63,7 @@ public class MainMenuView {
         
         while(!valid){
             
-            System.out.println("Enter your choice below:");
+            System.out.println("Enter your fight or flee choice below:");
             
             Input = keyboard.nextLine();
             Input = Input.trim();
@@ -94,25 +80,26 @@ public class MainMenuView {
     private void doAction(char selection) {
         switch (selection){
             case 'F':
-                this.displayFightMenu();
-            case 'G':
-                this.startNewGame();
+                this.displayFight();
                 break;
-            case 'H':
-                this.displayHelpMenu();
+            case 'R':
+                this.displayRun();
                 break;
-            case 'V':
-                this.displayViewMap();
+            case 'A':
+                this.displayAttack();
                 break;
-            case 'S':
-                this.saveGame();
+            case 'D':
+                this.displayDefend();
                 break;
-            case 'Q':
-                return;
             default:
                 System.out.println("\n*** Invalid Selection *** Try Again");
                 break;
         }
     }
-    
 }
+
+   
+
+    
+    
+
