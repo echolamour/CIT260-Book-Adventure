@@ -9,10 +9,17 @@ package bookadventure.view;
  *
  * @author Echo
  */
-public class GameMenuView {
+public class GameMenuView extends View {
 
-    void displayMenu() {
+    public GameMenuView(String promptMessage) {
+        super(promptMessage);
+    }
+
+    @Override
+    public void doAction(String value) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    
     
 }

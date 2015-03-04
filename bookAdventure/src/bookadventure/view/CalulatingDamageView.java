@@ -11,48 +11,10 @@ import java.util.Scanner;
  *
  * @author Tashakrn9
  */
-public class CalulatingDamageView {
-    
-    void displayFightMenu() {
-        
-        char selection = ' ';
-        do{
-            
-            System.out.println("Strength, Attack, Defense");
-            
-            String input = this.getInput();
-            selection = input.charAt(0);
-            
-            this.doAction();
-        
-        }while (selection != 'E');
-        FightMenuView  fightMenu = new FightMenuView();
-    fightMenu.displayFightMenu();
+public class CalulatingDamageView extends View {
 
-    }
-
-
-    private String getInput() {
-        boolean valid = false;
-        String Input = null;
-        Scanner keyboard = new Scanner(System.in);
-        
-        while(!valid){
-            
-            System.out.println("Enter your Strength:");
-             System.out.println("Enter your Attack:");
-              System.out.println("Enter your Defense:");
-            
-            Input = keyboard.nextLine();
-            Input = Input.trim();
-            
-            if (Input.length() < 1 | Input.length() < 4) {
-                System.out.println("Invalid choice - the input must not be blank");
-                continue;
-            }
-            break;
-        }
-        return Input;
+    public CalulatingDamageView(String promptMessage) {
+        super(promptMessage);
     }
 
     private double doAction(double attack, double defense, long strength) {
@@ -62,6 +24,11 @@ public class CalulatingDamageView {
     }
 
     private void doAction() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void doAction(String value) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

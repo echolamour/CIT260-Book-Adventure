@@ -50,7 +50,8 @@ public class BookAdventure {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        StartProgramView startProgramView = new StartProgramView();
+        String object = null;
+        StartProgramView startProgramView = new StartProgramView(object);
         startProgramView.startProgram();
         Player playerOne = new Player();
         Actor actorOne = new Actor();

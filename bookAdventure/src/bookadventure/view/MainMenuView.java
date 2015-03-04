@@ -7,30 +7,48 @@ package bookadventure.view;
 
 import bookadventure.BookAdventure;
 import bookadventure.control.GameControl;
-import java.util.Scanner;
+//import java.util.Scanner;
 
 /**
  *
  * @author Tashakrn9
  */
-public class MainMenuView {
+public class MainMenuView extends View{
+    private String object;
+
+    public MainMenuView(String promptMessage) {
+        super("\n"
+            + "\n------------------------------------------------------"
+            + "\n| Main Menu                                          |"
+            + "\n------------------------------------------------------"
+            + "\nG - Start Game"
+            + "\nF - Display Fight Menu"
+            + "\nH - Getting Help on how to play the game"
+            + "\nV - View Map"
+            + "\nS - Save Game"
+            + "\nQ - Quit Game"
+            + "\n-------------------------------------------------------");
+    }   
+
+
     
    
     private void startNewGame(){
         GameControl.createNewGame(BookAdventure.getPlayer());
         
-        GameMenuView gameMenu = new GameMenuView();
-        gameMenu.displayMenu();
+        
+        GameMenuView gameMenuView = new GameMenuView(object);
+        gameMenuView.display();
     }
     
     private void displayFightMenu(){
-        FightMenuView  fightMenu = new FightMenuView();
-        fightMenu.displayFightMenu();
+        FightMenuView  fightMenu = new FightMenuView(object);
+        fightMenu.display();
     }
     
     private void displayHelpMenu(){
-        HelpMenuView helpMenu = new HelpMenuView();
-        helpMenu.displayHelpMenu();
+        HelpMenuView helpMenu = new HelpMenuView(object);
+        helpMenu.display();
     }
     
     private void displayViewMap(){
@@ -52,44 +70,6 @@ public class MainMenuView {
             + "\nS - Save Game"
             + "\nQ - Quit Game"
             + "\n-------------------------------------------------------";
-    
-    void displayMenu() {
-        
-        char selection = ' ';
-        do{
-            
-            System.out.println(MENU);
-            
-            String input = this.getInput();
-            selection = input.charAt(0);
-            
-            this.doAction(selection);
-        
-        }while (selection != 'E');
-        
-    }
-
-
-    private String getInput() {
-        boolean valid = false;
-        String Input = null;
-        Scanner keyboard = new Scanner(System.in);
-        
-        while(!valid){
-            
-            System.out.println("Enter your choice below:");
-            
-            Input = keyboard.nextLine();
-            Input = Input.trim();
-            
-            if (Input.length() < 1) {
-                System.out.println("Invalid choice - the input must not be blank");
-                continue;
-            }
-            break;
-        }
-        return Input;
-    }
 
     private void doAction(char selection) {
         switch (selection){
@@ -113,6 +93,13 @@ public class MainMenuView {
                 System.out.println("\n*** Invalid Selection *** Try Again");
                 break;
         }
+    }
+
+    @Override
+    public void doAction(String obj) {
+        String value = (String) obj;
+        value = value.toUpperCase();
+        char choice = value.charAt(0);
     }
     
 }

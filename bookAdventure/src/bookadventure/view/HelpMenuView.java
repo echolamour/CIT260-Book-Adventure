@@ -13,7 +13,19 @@ import java.util.Scanner;
  *
  * @author Echo
  */
-public class HelpMenuView {
+public class HelpMenuView extends View{
+
+    public HelpMenuView(String promptMessage) {
+        super("\n"
+            + "\n------------------------------------------------------"
+            + "\n| Help Menu                                          |"
+            + "\n------------------------------------------------------"
+            + "\nG - Goal of the Game"
+            + "\nA - Ask/Answer Question"
+            + "\nI - List of Inventory Items"
+            + "\n-------------------------------------------------------");
+    }
+    
     private void displayGoal(){
         System.out.println("*** displayGoal function called ***");
     }
@@ -24,53 +36,6 @@ public class HelpMenuView {
     
     private void displayInventory(){
         System.out.println("*** displayInventory function called ***");
-    }
-    
-    private final String MENU = "\n"
-            + "\n------------------------------------------------------"
-            + "\n| Help Menu                                          |"
-            + "\n------------------------------------------------------"
-            + "\nG - Goal of the Game"
-            + "\nA - Ask/Answer Question"
-            + "\nI - List of Inventory Items"
-            + "\n-------------------------------------------------------";
-    
-    void displayHelpMenu() {
-        
-        char selection = ' ';
-        do{
-            
-            System.out.println(MENU);
-            
-            String input = this.getInput();
-            selection = input.charAt(0);
-            
-            this.doAction(selection);
-        
-        }while (selection != 'E');
-        
-    }
-
-
-    private String getInput() {
-        boolean valid = false;
-        String Input = null;
-        Scanner keyboard = new Scanner(System.in);
-        
-        while(!valid){
-            
-            System.out.println("Enter your choice below:");
-            
-            Input = keyboard.nextLine();
-            Input = Input.trim();
-            
-            if (Input.length() < 1) {
-                System.out.println("Invalid choice - the input must not be blank");
-                continue;
-            }
-            break;
-        }
-        return Input;
     }
 
     private void doAction(char selection) {
@@ -88,6 +53,11 @@ public class HelpMenuView {
                 System.out.println("\n*** Invalid Selection *** Try Again");
                 break;
         }
+    }
+
+    @Override
+    public void doAction(String value) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }
