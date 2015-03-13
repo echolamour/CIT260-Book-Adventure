@@ -15,6 +15,12 @@ import java.util.Objects;
 public class Game implements Serializable {
     private double totalTime;
     private String attribute;
+    private Map map;
+    private InventoryItem[] inventory;
+    private Player player;
+    private String[] actor;
+    
+    
 
     public Game() {
     }
@@ -33,6 +39,55 @@ public class Game implements Serializable {
 
     public void setAttribute(String attribute) {
         this.attribute = attribute;
+    }
+
+    public Map getMap() {
+        return map;
+    }
+
+    public void setMap(Map map) {
+        this.map = map;
+    }
+
+    public InventoryItem[] getInventory() {
+        return inventory;
+    }
+
+    public void setInventory(InventoryItem[] inventory) {
+        this.inventory = inventory;
+    }
+    
+      public enum Item {
+        water,
+        food,
+        armor,
+        shield,
+        swords,
+        axes,
+        bows,
+        ring,
+        herbs,
+        arrows;
+
+        public int ordial() {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+    }
+   
+    public Player getPlayer() {
+        return player;
+    }
+
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
+
+    public String[] getActor() {
+        return actor;
+    }
+
+    public void setActor(String[] actor) {
+        this.actor = actor;
     }
 
     @Override

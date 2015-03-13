@@ -54,7 +54,6 @@ public class BookAdventure {
         StartProgramView startProgramView = new StartProgramView(object);
         startProgramView.startProgram();
         Player playerOne = new Player();
-        Actor actorOne = new Actor();
         Map mapOne = new Map();
         Location locationOne = new Location();
         Game gameOne = new Game();
@@ -63,7 +62,6 @@ public class BookAdventure {
         
         playerOne.setName(null);
         playerOne.setBestTime(25.00);
-        actorOne.setName(null);
         mapOne.setxCount(xCoordinate);
         mapOne.setyCount(yCoordinate);
         locationOne.setxCoordinate(xCoordinate);
@@ -79,8 +77,6 @@ public class BookAdventure {
         
         String playerInfo = playerOne.toString();
         System.out.println(playerInfo);
-        String actorInfo = actorOne.toString();
-        System.out.println(actorInfo);
         String mapInfo = mapOne.toString();
         System.out.println(mapInfo);
         String locationInfo = locationOne.toString();
