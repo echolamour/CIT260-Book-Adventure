@@ -6,6 +6,7 @@
 package bookadventure.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Objects;
 
 /**
@@ -15,8 +16,11 @@ import java.util.Objects;
 public class Location implements Serializable {
     private double xCoordinate;
     private double yCoordinate;
-    private String visited;
+    private boolean visited;
+    private Scene scene;
+    private ArrayList<Actor> actors;
 
+    
     public Location() {
     }
     
@@ -38,11 +42,11 @@ public class Location implements Serializable {
         this.yCoordinate = yCoordinate;
     }
 
-    public String getVisited() {
+    public boolean getVisited() {
         return visited;
     }
 
-    public void setVisited(String visited) {
+    public void setVisited(boolean visited) {
         this.visited = visited;
     }
 
@@ -79,6 +83,14 @@ public class Location implements Serializable {
             return false;
         }
         return true;
+    }
+
+    void setScene(Scene scene) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    void setScene(Scene scene) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     

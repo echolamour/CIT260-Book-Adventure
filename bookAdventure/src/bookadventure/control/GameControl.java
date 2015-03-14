@@ -12,6 +12,7 @@ import bookadventure.model.Game.Item;
 import bookadventure.model.InventoryItem;
 import bookadventure.model.Map;
 import bookadventure.model.Player;
+import bookadventure.model.Scene;
 
 /**
  *
@@ -106,6 +107,54 @@ public class GameControl {
         
         return inventory;
                 }
+    
+    public static InventoryItem[] getSortedInventoryList(){
+        InventoryItem[] originalInventoryList = BookAdventure.getCurrentGame().getInventory();
+        
+        InventoryItem[] inventoryList = originalInventoryList.clone();
+        
+        InventoryItem tempInventoryItem;
+        for (int i = 0; i < inventoryList.length-1; i++){
+            for (int j = 0; j < inventoryList.length-1-i; j++){
+                if (inventoryList[j].getDescription().compareToIgnoreCase(inventoryList[j+1].getDescription()) >0){
+                    tempInventoryItem = inventoryList[j];
+                    inventoryList[j] = inventoryList[j+1];
+                    inventoryList[j+1] = tempInventoryItem;          
+                }
+            }
+        }
+           
+    }
+    
+    private static Map createMap(){
+        Map map = new Map(5,5);
+        
+        Scene[] scenes = createScenes();
+        
+        GameControl.assignScenesToLocations(map, scenes);
+        
+        return map;
+    }
+    
+    private static Scene[] createScenes() throws MapControlException {
+        BufferedImage image = null;
+        
+        Game game = BookAdventure.getCurrentGame();
+        Scene[] scenes = new Scene[SceneType.values().length];
+        
+        Scene startingScene = new Scene();
+        startingScene.setDescription("\nWelcome to the book");
+        startingScene.setMapSymbol("ST");
+        startingScene.setBlocked(false);
+        scenes[SceneType.start.ordinal()] = startingScene;
+        
+        Scene finishScene = new Scene();
+        finishScene.setDescription("\nCongratulations, you have defeated your enemy.");
+        finishScene.setMapSymbol("FN");
+        finishScene.setBlocked(false);
+        scenes[SceneType.finish.ordinal()] = finishScene;
+        return null; 
+    }
 }
             
         

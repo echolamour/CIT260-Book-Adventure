@@ -5,6 +5,11 @@
  */
 package bookadventure.view;
 
+import bookadventure.BookAdventure;
+import bookadventure.control.GameControl;
+import bookadventure.model.InventoryItem;
+import bookadventure.model.Map;
+
 /**
  *
  * @author Echo
@@ -16,9 +21,62 @@ public class GameMenuView extends View {
     }
 
     @Override
-    public void doAction(String value) {
+    public void doAction(char value) {
+        switch (value){
+            case 'V'://View Map
+                this.displayMap();
+                break;
+            case 'L'://List of Inventory Items
+                this.viewInventory();
+                break;
+            case 'R'://Riddle
+            case 'A'://Ask/Answer Question
+            case 'G'://Give/Pick up item
+            case 'C'://Charachter Progress
+                this.viewProgress();
+                break;
+            case 'K'://Kill/Mercy
+            case 'S'://Save Game
+            case 'E'://Exit to Main Menu
+            case 'Q'://Quit Game
+                    
+        }
+    }
+
+    private void viewProgress() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    private void viewInventory() {
+        InventoryItem[] inventory = GameControl.getSortedInventoryList();
+        
+        System.out.println("\nList of Inventory Items");
+        System.out.println("Description" + "\t" + "Quantity");
+        
+        for (InventoryItem inventoryItem : inventory)){
+            System.out.println(inventoryItem.getDescription() + "\t    "+ inventoryItem.getQuantity());
+        }
+    }
+
+    private void displayMap() {
+        Map map = BookAdventure.getCurrentGame().getMap();
+        System.out.println("Map\n");
+        for (int row =0; row < 5; row++){
+            System.out.println("_______________\n");
+            for(int column = 0; column < 5; column++){
+                System.out.println("|");
+                location = location[row][column];
+                if (visited == true){
+                    System.out.println("X");
+                }
+                else{
+                    System.out.println(" ");
+                }
+                System.out.println("|");
+            }
+            System.out.println("_______________\n");
+        }
+                
 
     
     
