@@ -13,6 +13,8 @@ import bookadventure.model.InventoryItem;
 import bookadventure.model.Map;
 import bookadventure.model.Player;
 import bookadventure.model.Scene;
+import bookadventure.model.Scene.SceneType;
+import java.awt.image.BufferedImage;
 
 /**
  *
@@ -123,10 +125,11 @@ public class GameControl {
                 }
             }
         }
+        return null;
            
     }
     
-    private static Map createMap(){
+    private static Map createMap() throws MapControlException{
         Map map = new Map(5,5);
         
         Scene[] scenes = createScenes();
@@ -154,6 +157,16 @@ public class GameControl {
         finishScene.setBlocked(false);
         scenes[SceneType.finish.ordinal()] = finishScene;
         return null; 
+    }
+
+    private static void assignScenesToLocations(Map map, Scene[] scenes) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private static class MapControlException extends Exception {
+
+        public MapControlException() {
+        }
     }
 }
             

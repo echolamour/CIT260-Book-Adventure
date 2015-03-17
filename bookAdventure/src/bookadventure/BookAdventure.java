@@ -66,7 +66,7 @@ public class BookAdventure {
         mapOne.setyCount(yCoordinate);
         locationOne.setxCoordinate(xCoordinate);
         locationOne.setyCoordinate(yCoordinate);
-        locationOne.setVisited(null);
+        locationOne.setVisited(false);
         gameOne.setTotalTime(25.00);
         gameOne.setAttribute("unknown");
         itemOne.setInventoryType(null);
