@@ -9,18 +9,18 @@ import bookadventure.BookAdventure;
 import bookadventure.control.GameControl;
 import bookadventure.model.InventoryItem;
 import bookadventure.model.Map;
+import bookadventure.model.Location;
 
 /**
  *
  * @author Echo
  */
 public class GameMenuView extends View {
-
     public GameMenuView(String promptMessage) {
         super(promptMessage);
     }
 
-    @Override
+    //@Override
     public void doAction(char value) {
         switch (value){
             case 'V'://View Map
@@ -66,6 +66,7 @@ public class GameMenuView extends View {
             for(int column = 0; column < 5; column++){
                 System.out.println("|");
                 location = location[row][column];
+                boolean visited = false;
                 if (visited == true){
                     System.out.println("X");
                 }
@@ -76,8 +77,5 @@ public class GameMenuView extends View {
             }
             System.out.println("_______________\n");
         }
-                
-
-    
-    
+    }   
 }
