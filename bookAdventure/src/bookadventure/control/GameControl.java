@@ -14,18 +14,19 @@ import bookadventure.model.Map;
 import bookadventure.model.Player;
 import bookadventure.model.Scene;
 import bookadventure.model.Scene.SceneType;
+import bookadventure.view.View;
 import java.awt.image.BufferedImage;
 
 /**
  *
  * @author Echo
  */
-public class GameControl {
-    //I think that this needs filled out
-    public int compareToIgnoreCase(String str){
-        return 0;
+public class GameControl extends View {
+
+    public GameControl(String promptMessage) {
+        super(promptMessage);
     }
-    
+     
     public static void createNewGame(Player player) {
         
         Game game = new Game();
@@ -123,7 +124,7 @@ public class GameControl {
         for (int i = 0; i < inventoryList.length-1; i++){
             for (int j = 0; j < inventoryList.length-1-i; j++){
                 if (inventoryList[j].getDescription().
-                        compareToIgnoreCase(inventoryList[j+1].getDescription()) >0)//look to line24
+                        compareToIgnoreCase(inventoryList[j+1].getDescription()) <=0)
                 {
                     tempInventoryItem = inventoryList[j];
                     inventoryList[j] = inventoryList[j+1];
@@ -166,6 +167,11 @@ public class GameControl {
     }
 
     private static void assignScenesToLocations(Map map, Scene[] scenes) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void doAction(String value) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
