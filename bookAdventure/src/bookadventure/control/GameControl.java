@@ -21,7 +21,11 @@ import java.awt.image.BufferedImage;
  * @author Echo
  */
 public class GameControl {
-
+    //I think that this needs filled out
+    public int compareToIgnoreCase(String str){
+        return 0;
+    }
+    
     public static void createNewGame(Player player) {
         
         Game game = new Game();
@@ -118,7 +122,9 @@ public class GameControl {
         InventoryItem tempInventoryItem;
         for (int i = 0; i < inventoryList.length-1; i++){
             for (int j = 0; j < inventoryList.length-1-i; j++){
-                if (inventoryList[j].getDescription().compareToIgnoreCase(inventoryList[j+1].getDescription()) >0){
+                if (inventoryList[j].getDescription().
+                        compareToIgnoreCase(inventoryList[j+1].getDescription()) >0)//look to line24
+                {
                     tempInventoryItem = inventoryList[j];
                     inventoryList[j] = inventoryList[j+1];
                     inventoryList[j+1] = tempInventoryItem;          

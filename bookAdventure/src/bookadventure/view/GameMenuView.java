@@ -53,8 +53,8 @@ public class GameMenuView extends View {
         System.out.println("\nList of Inventory Items");
         System.out.println("Description" + "\t" + "Quantity");
         
-        for (InventoryItem inventoryItem : inventory)){
-            System.out.println(inventoryItem.getDescription() + "\t    "+ inventoryItem.getQuantity());
+        for (InventoryItem inventoryItem : inventory){
+            System.out.println(inventoryItem.getDescription() + "\t    "+ inventoryItem.getQuantityOfItem());
         }
     }
 
@@ -65,7 +65,7 @@ public class GameMenuView extends View {
             System.out.println("_______________\n");
             for(int column = 0; column < 5; column++){
                 System.out.println("|");
-                location = location[row][column];
+                Location[][] locations = new Location[row][column];
                 boolean visited = false;
                 if (visited == true){
                     System.out.println("X");
@@ -78,4 +78,9 @@ public class GameMenuView extends View {
             System.out.println("_______________\n");
         }
     }   
+
+    @Override
+    public void doAction(String value) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
