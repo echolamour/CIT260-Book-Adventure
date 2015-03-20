@@ -22,7 +22,7 @@ import bookadventure.view.StartProgramView;
  * @author Echo
  */
 public class BookAdventure {
-   
+    
     private static Game currentGame = null;
     private static Player player = null;
 
@@ -52,7 +52,17 @@ public class BookAdventure {
     public static void main(String[] args) {
         String object = null;
         StartProgramView startProgramView = new StartProgramView(object);
-        startProgramView.startProgram();
+        try {
+            startProgramView.startProgram();
+        }catch (Throwable te){
+            System.out.println(te.getMessage());
+            te.printStackTrace();;
+            startProgramView.display();
+        }
+        
+        /*The following code was at one point part of the program, but now seems obsolete.
+        
+        
         Player playerOne = new Player();
         Map mapOne = new Map();
         Location locationOne = new Location();
@@ -87,10 +97,12 @@ public class BookAdventure {
         System.out.println(itemInfo);
         String sceneInfo = sceneOne.toString();
         System.out.println(sceneInfo);
+        */
     }
 
-    private static StartProgramView newStartProgramView() {
+    /*private static StartProgramView newStartProgramView() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+    */
     
 }

@@ -5,6 +5,7 @@
  */
 package bookadventure.control;
 
+import bookadventure.exceptions.MapControlException;
 import bookadventure.model.Map;
 
 /**
@@ -13,12 +14,12 @@ import bookadventure.model.Map;
  */
 class MapControl {
 
-    static Map createMap() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    static Map createMap()throws MapControlException{
+        throw new MapControlException("Error Creating Map");
     }
 
-    static void moveActorToStartingLocation(Map map) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    static void moveActorToStartingLocation(Map map) throws MapControlException {
+        throw new MapControlException("Error Moving Actor to Location");
     }
     
 }

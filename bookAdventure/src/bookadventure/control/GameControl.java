@@ -27,7 +27,7 @@ public class GameControl extends View {
         super(promptMessage);
     }
      
-    public static void createNewGame(Player player) {
+    public static void createNewGame(Player player) throws bookadventure.exceptions.MapControlException {
         
         Game game = new Game();
         BookAdventure.setCurrentGame(game);
