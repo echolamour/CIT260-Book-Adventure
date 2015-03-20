@@ -7,6 +7,7 @@ package bookadventure.view;
 
 import bookadventure.BookAdventure;
 import bookadventure.control.GameControl;
+import bookadventure.exceptions.MapControlException;
 //import java.util.Scanner;
 
 /**
@@ -33,7 +34,7 @@ public class MainMenuView extends View{
 
     
    
-    private void startNewGame(){
+    private void startNewGame() throws MapControlException{
         GameControl.createNewGame(BookAdventure.getPlayer());
         
         
@@ -71,7 +72,7 @@ public class MainMenuView extends View{
             + "\nQ - Quit Game"
             + "\n-------------------------------------------------------";
 
-    private void doAction(char selection) {
+    private void doAction(char selection) throws MapControlException {
         switch (selection){
             case 'F':
                 this.displayFightMenu();
