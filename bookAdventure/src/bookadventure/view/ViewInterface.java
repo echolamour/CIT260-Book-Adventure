@@ -12,5 +12,10 @@ package bookadventure.view;
 public interface ViewInterface {
     public void display();
     public String getInput();
+
+    /**
+     *
+     * @param value
+     */
     public void doAction(String value);
 }

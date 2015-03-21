@@ -53,12 +53,13 @@ public class BookAdventure {
         String object = null;
         StartProgramView startProgramView = new StartProgramView(object);
         try {
-            startProgramView.startProgram();
+            startProgramView.display();
         }catch (Throwable te){
             System.out.println(te.getMessage());
-            te.printStackTrace();;
+            te.printStackTrace();
             startProgramView.display();
         }
+    }
         
         /*The following code was at one point part of the program, but now seems obsolete.
         
@@ -105,4 +106,4 @@ public class BookAdventure {
     }
     */
     
-}
+

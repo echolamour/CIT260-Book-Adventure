@@ -59,5 +59,6 @@ public class HelpMenuView extends View{
     public void doAction(String value) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
 }
+    
+

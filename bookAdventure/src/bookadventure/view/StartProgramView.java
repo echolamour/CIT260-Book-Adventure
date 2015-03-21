@@ -69,11 +69,35 @@ public class StartProgramView extends View {
     }
 
     private void displayWelcomeMessage(Player player) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("\n\n================================================");
+        System.out.println("\tWelcome to the game" + player.getName());
+        System.out.println("\tWe hope you have a lot of fun!");
+        System.out.println("======================================================");
     }
 
     private void displayBanner() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+      System.out.println("\n\n******************************************");
+      
+      System.out.println("*                                             *"
+              + "\n* This is the game of Book Adventure                 *"
+              + "\n* In this game you will have the option to go into   *"
+              + "\n* three various worlds that you will have goals to   *"
+              + "\n* achieve.                                           *");
+      
+      System.out.println("*                                             *"
+              + "\n* You will have a chance to meet other characters    *"
+              + "\n* throughout your adventure to help you accomplish   *"
+              + "\n* the main task, which depends on the choice you     *"
+              + "\n* have made, it could either be find and kill the    *"
+              + "\n* red queen, find and kill the ice queen, or destroy *"
+              + "\n* the one ring. Your choice!                         *");
+      
+      System.out.println("*                                             *"
+              + "\n* Good Luck and enjoy the adventure.                 *"
+              + "\n*                                                    *");
+      
+      System.out.println("************************************************");
+      
     }
 }
 
