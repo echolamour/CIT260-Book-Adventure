@@ -7,6 +7,7 @@ package bookadventure.view;
 
 import bookadventure.BookAdventure;
 import bookadventure.control.GameControl;
+import bookadventure.exceptions.GameControlExceptions;
 import bookadventure.model.InventoryItem;
 import bookadventure.model.Map;
 import bookadventure.model.Location;
@@ -21,7 +22,7 @@ public class GameMenuView extends View {
     }
 
     //@Override
-    public void doAction(char value) {
+    public void doAction(char value) throws GameControlExceptions {
         switch (value){
             case 'V'://View Map
                 this.displayMap();
@@ -47,7 +48,7 @@ public class GameMenuView extends View {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    private void viewInventory() {
+    private void viewInventory() throws GameControlExceptions {
         InventoryItem[] inventory = GameControl.getSortedInventoryList();
         
         System.out.println("\nList of Inventory Items");
