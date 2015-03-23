@@ -29,10 +29,19 @@ public class CalulatingDamageView extends View {
 
     @Override
     public void doAction(String value) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String object = null;
+        GameMenuView gameMenuView = new GameMenuView(object);
+        try {
+            gameMenuView.display();
+        }catch (Throwable te){
+            System.out.println(te.getMessage());
+            te.printStackTrace();
+            gameMenuView.display();
+        }
+    }
     }
     
-        }
+       
     
 
 
