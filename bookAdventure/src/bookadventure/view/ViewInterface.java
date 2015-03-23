@@ -5,13 +5,15 @@
  */
 package bookadventure.view;
 
+import bookadventure.exceptions.GameControlExceptions;
+
 /**
  *
  * @author Echo
  */
-public interface ViewInterface {
+public interface ViewInterface  {
     public void display();
-    public String getInput();
+    public String getInput() throws GameControlExceptions;
 
     /**
      *

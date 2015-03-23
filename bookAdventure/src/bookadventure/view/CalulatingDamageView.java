@@ -22,10 +22,10 @@ public class CalulatingDamageView extends View {
 
                   return damage;
     }
-
+    /*The function is also below
     private void doAction() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    }*/
 
     @Override
     public void doAction(String value) {

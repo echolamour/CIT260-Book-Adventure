@@ -6,6 +6,8 @@
 package bookadventure.control;
 
 import bookadventure.BookAdventure;
+import bookadventure.exceptions.GameControlExceptions;
+import bookadventure.exceptions.MapControlException;
 import bookadventure.model.Constants;
 import bookadventure.model.Game;
 import bookadventure.model.Game.Item;
@@ -27,7 +29,7 @@ public class GameControl extends View {
         super(promptMessage);
     }
      
-    public static void createNewGame(Player player) throws bookadventure.exceptions.MapControlException {
+    public static void createNewGame(Player player) throws bookadventure.exceptions.MapControlException, GameControlExceptions {
         
         Game game = new Game();
         BookAdventure.setCurrentGame(game);
@@ -115,7 +117,7 @@ public class GameControl extends View {
         return inventory;
                 }
     
-    public static InventoryItem[] getSortedInventoryList(){
+    public static InventoryItem[] getSortedInventoryList() throws GameControlExceptions{
         InventoryItem[] originalInventoryList = BookAdventure.getCurrentGame().getInventory();
         
         InventoryItem[] inventoryList = originalInventoryList.clone();
@@ -132,11 +134,12 @@ public class GameControl extends View {
                 }
             }
         }
-        return null;
+        throw new GameControlExceptions("Null Value, List Sorted"); 
            
     }
     
-    private static Map createMap() throws MapControlException{
+    /*This block of code is in the wrong place please delete
+    private static Map createMap() throws MapControlException, GameControlExceptions{
         Map map = new Map(5,5);
         
         Scene[] scenes = createScenes();
@@ -144,9 +147,9 @@ public class GameControl extends View {
         GameControl.assignScenesToLocations(map, scenes);
         
         return map;
-    }
+    }*/
     
-    private static Scene[] createScenes() throws MapControlException {
+    static Scene[] createScenes() throws MapControlException, GameControlExceptions{
         BufferedImage image = null;
         
         Game game = BookAdventure.getCurrentGame();
@@ -163,11 +166,8 @@ public class GameControl extends View {
         finishScene.setMapSymbol("FN");
         finishScene.setBlocked(false);
         scenes[SceneType.finish.ordinal()] = finishScene;
-        return null; 
-    }
-
-    private static void assignScenesToLocations(Map map, Scene[] scenes) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        throw new GameControlExceptions("Null Value, Scene Created"); 
     }
 
     @Override
@@ -175,11 +175,7 @@ public class GameControl extends View {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    private static class MapControlException extends Exception {
-
-        public MapControlException() {
-        }
-    }
+    
 }
             
         
