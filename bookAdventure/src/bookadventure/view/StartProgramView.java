@@ -70,7 +70,7 @@ public class StartProgramView extends View {
 
     private void displayWelcomeMessage(Player player) {
         System.out.println("\n\n================================================");
-        System.out.println("\tWelcome to the game" + player.getName());
+        System.out.println("\tWelcome to the game " + player.getName());
         System.out.println("\tWe hope you have a lot of fun!");
         System.out.println("======================================================");
     }
