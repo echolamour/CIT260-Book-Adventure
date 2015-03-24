@@ -77,6 +77,7 @@ public class MainMenuView extends View{
         switch (selection){
             case 'F':
                 this.displayFightMenu();
+                break;
             case 'G':
                 this.startNewGame();
                 break;
