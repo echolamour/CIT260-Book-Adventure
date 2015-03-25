@@ -34,11 +34,10 @@ public class MainMenuView extends View{
 
 
     
-   
+   //Why is this in the main menu view?
     private void startNewGame() throws MapControlException, GameControlExceptions{
         GameControl.createNewGame(BookAdventure.getPlayer());
-        
-        
+                
         GameMenuView gameMenuView = new GameMenuView(object);
         gameMenuView.display();
     }
@@ -82,7 +81,9 @@ public class MainMenuView extends View{
                 this.startNewGame();
                 break;
             case 'H':
-                this.displayHelpMenu();
+                HelpMenuView helpMenu;
+                helpMenu = new HelpMenuView(object);
+                helpMenu.display();
                 break;
             case 'V':
                 this.displayViewMap();

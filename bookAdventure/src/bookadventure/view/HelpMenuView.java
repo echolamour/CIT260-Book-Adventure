@@ -26,6 +26,26 @@ public class HelpMenuView extends View{
             + "\n-------------------------------------------------------");
     }
     
+    private final String HELPMENU = "\n"
+            + "\n------------------------------------------------------"
+            + "\n| Help Menu                                          |"
+            + "\n------------------------------------------------------"
+            + "\nG - Goal of the Game"
+            + "\nA - Ask/Answer Question"
+            + "\nI - List of Inventory Items"
+            + "\n-------------------------------------------------------";
+    
+    public void displayHelpMenu(){
+        char selection = ' ';
+        
+        System.out.println(HELPMENU);
+        
+        String input = this.getInput();
+        selection = input.charAt(0);
+        
+        this.doAction(selection);
+    }
+    
     private void displayGoal(){
         System.out.println("*** displayGoal function called ***");
     }

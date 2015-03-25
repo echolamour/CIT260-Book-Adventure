@@ -57,7 +57,7 @@ public class BookAdventure {
         }catch (Throwable te){
             System.out.println(te.getMessage());
             te.printStackTrace();
-            startProgramView.display();
+            startProgramView.startProgram();
         }
     }
         
