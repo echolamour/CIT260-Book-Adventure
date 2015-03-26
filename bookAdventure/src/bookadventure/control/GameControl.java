@@ -6,7 +6,7 @@
 package bookadventure.control;
 
 import bookadventure.BookAdventure;
-import bookadventure.exceptions.GameControlExceptions;
+import bookadventure.exceptions.GameControlException;
 import bookadventure.exceptions.MapControlException;
 import bookadventure.model.Constants;
 import bookadventure.model.Game;
@@ -29,7 +29,7 @@ public class GameControl extends View {
         super(promptMessage);
     }
      
-    public static void createNewGame(Player player) throws bookadventure.exceptions.MapControlException, GameControlExceptions {
+    public static void createNewGame(Player player) throws bookadventure.exceptions.MapControlException, GameControlException {
         
         Game game = new Game();
         BookAdventure.setCurrentGame(game);
@@ -117,7 +117,7 @@ public class GameControl extends View {
         return inventory;
                 }
     
-    public static InventoryItem[] getSortedInventoryList() throws GameControlExceptions{
+    public static InventoryItem[] getSortedInventoryList() throws GameControlException{
         InventoryItem[] originalInventoryList = BookAdventure.getCurrentGame().getInventory();
         
         InventoryItem[] inventoryList = originalInventoryList.clone();
@@ -134,7 +134,7 @@ public class GameControl extends View {
                 }
             }
         }
-        throw new GameControlExceptions("Null Value, List Sorted"); 
+        throw new GameControlException("Null Value, List Sorted"); 
            
     }
     
@@ -149,7 +149,7 @@ public class GameControl extends View {
         return map;
     }*/
     
-    static Scene[] createScenes() throws MapControlException, GameControlExceptions{
+    static Scene[] createScenes() throws MapControlException, GameControlException{
         BufferedImage image = null;
         
         Game game = BookAdventure.getCurrentGame();
@@ -167,7 +167,7 @@ public class GameControl extends View {
         finishScene.setBlocked(false);
         scenes[SceneType.finish.ordinal()] = finishScene;
         
-        throw new GameControlExceptions("Null Value, Scene Created"); 
+        throw new GameControlException("Null Value, Scene Created"); 
     }
 
     @Override

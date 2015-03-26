@@ -5,7 +5,7 @@
  */
 package bookadventure.control;
 
-import bookadventure.exceptions.GameControlExceptions;
+import bookadventure.exceptions.GameControlException;
 import bookadventure.exceptions.MapControlException;
 import bookadventure.model.Map;
 import bookadventure.model.Scene;
@@ -17,7 +17,7 @@ import bookadventure.model.Scene;
 class MapControl {
 
     
-    static Map createMap()throws MapControlException, GameControlExceptions{
+    static Map createMap()throws MapControlException, GameControlException{
         Map map = new Map(5,5);
         
         Scene[] scenes = GameControl.createScenes();

@@ -9,24 +9,24 @@ package bookadventure.exceptions;
  *
  * @author Echo
  */
-public class GameControlExceptions extends Exception {
+public class GameControlException extends Exception {
 
-    public GameControlExceptions() {
+    public GameControlException() {
     }
 
-    public GameControlExceptions(String message) {
+    public GameControlException(String message) {
         super(message);
     }
 
-    public GameControlExceptions(String message, Throwable cause) {
+    public GameControlException(String message, Throwable cause) {
         super(message, cause);
     }
 
-    public GameControlExceptions(Throwable cause) {
+    public GameControlException(Throwable cause) {
         super(cause);
     }
 
-    public GameControlExceptions(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
+    public GameControlException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
         super(message, cause, enableSuppression, writableStackTrace);
     }
     

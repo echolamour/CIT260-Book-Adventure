@@ -5,7 +5,7 @@
  */
 package bookadventure.model;
 
-import bookadventure.exceptions.GameControlExceptions;
+import bookadventure.exceptions.GameControlException;
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -41,7 +41,7 @@ public class Scene implements Serializable{
         finish,
     }
     
-    public static void assignScenesToLocations(Map map, Scene[] scenes) throws GameControlExceptions{
+    public static void assignScenesToLocations(Map map, Scene[] scenes) throws GameControlException{
         Location[][] locations = map.getLocations();
         
         locations[0][0].setScene(scenes[SceneType.river.ordinal()]);

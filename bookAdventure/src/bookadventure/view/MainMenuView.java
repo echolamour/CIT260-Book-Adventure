@@ -7,7 +7,7 @@ package bookadventure.view;
 
 import bookadventure.BookAdventure;
 import bookadventure.control.GameControl;
-import bookadventure.exceptions.GameControlExceptions;
+import bookadventure.exceptions.GameControlException;
 import bookadventure.exceptions.MapControlException;
 //import java.util.Scanner;
 
@@ -35,9 +35,13 @@ public class MainMenuView extends View{
 
     
    
-    private void startNewGame() throws MapControlException, GameControlExceptions{
+    private void startNewGame() {
+        try {
         GameControl.createNewGame(BookAdventure.getPlayer());
-        
+        } catch (MapControlException | GameControlException ex) {
+            System.out.println(ex.getMessage());
+        }
+            
         
         GameMenuView gameMenuView = new GameMenuView(object);
         gameMenuView.display();
@@ -72,9 +76,14 @@ public class MainMenuView extends View{
             + "\nS - Save Game"
             + "\nQ - Quit Game"
             + "\n-------------------------------------------------------";
-    
-    private void doAction(char selection) throws MapControlException, GameControlExceptions {
-        switch (selection){
+   
+    @Override
+    public void doAction(String obj) {
+        String value = (String) obj;
+        value = value.toUpperCase();
+        char choice = value.charAt(0);
+        
+       switch (choice){
             case 'F':
                 this.displayFightMenu();
             case 'G':
@@ -97,12 +106,6 @@ public class MainMenuView extends View{
         }
     }
 
-  
-    @Override
-    public void doAction(String obj) {
-        String value = (String) obj;
-        value = value.toUpperCase();
-        char choice = value.charAt(0);
-    }
+    
     
 }

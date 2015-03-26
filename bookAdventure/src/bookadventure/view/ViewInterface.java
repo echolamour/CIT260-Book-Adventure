@@ -5,7 +5,7 @@
  */
 package bookadventure.view;
 
-import bookadventure.exceptions.GameControlExceptions;
+import bookadventure.exceptions.GameControlException;
 
 /**
  *
@@ -13,7 +13,7 @@ import bookadventure.exceptions.GameControlExceptions;
  */
 public interface ViewInterface  {
     public void display();
-    public String getInput() throws GameControlExceptions;
+    public String getInput() throws GameControlException;
 
     /**
      *
