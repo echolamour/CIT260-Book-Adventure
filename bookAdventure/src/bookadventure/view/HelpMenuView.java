@@ -38,7 +38,7 @@ public class HelpMenuView extends View{
     public void displayHelpMenu(){
         char selection = ' ';
         
-        System.out.println(HELPMENU);
+        this.console.println(HELPMENU);
         
         String input = this.getInput();
         selection = input.charAt(0);
@@ -47,15 +47,15 @@ public class HelpMenuView extends View{
     }
     
     private void displayGoal(){
-        System.out.println("*** displayGoal function called ***");
+        this.console.println("*** displayGoal function called ***");
     }
     
     private void startChat(){
-        System.out.println("*** startChat function called ***");
+        this.console.println("*** startChat function called ***");
     }
     
     private void displayInventory(){
-        System.out.println("*** displayInventory function called ***");
+        this.console.println("*** displayInventory function called ***");
     }
 
     private void doAction(char selection) {
@@ -70,7 +70,7 @@ public class HelpMenuView extends View{
                 this.displayInventory();
                 break;
             default:
-                System.out.println("\n*** Invalid Selection *** Try Again");
+                this.console.println("\n*** Invalid Selection *** Try Again");
                 break;
         }
     }

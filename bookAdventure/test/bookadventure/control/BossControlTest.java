@@ -5,6 +5,7 @@
  */
 package bookadventure.control;
 
+import bookadventure.exceptions.BossControlException;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -31,7 +32,7 @@ public class BossControlTest {
      * Test of fightBoss method, of class BossControl.
      */
     @Test
-    public void testFightBoss() {
+    public void testFightBoss() throws BossControlException {
         System.out.println("fightBoss");
          /********************
          * Test case #1

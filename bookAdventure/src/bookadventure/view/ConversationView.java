@@ -5,7 +5,10 @@
  */
 package bookadventure.view;
 
+import java.io.IOException;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -18,19 +21,18 @@ public class ConversationView extends View {
         super(promptMessage);
     }
     
-    public String getFeedback() {
-        Scanner keyboard = new Scanner(System.in);
+    public String getFeedback() throws IOException {
         boolean valid = false;
         String Feedback = null;
         
         while (!valid){
-            System.out.println("\t\nWhat is your response:");
+            this.console.println("\t\nWhat is your response:");
             
-            Feedback = keyboard.nextLine();
+            Feedback = this.keyboard.readLine();
             Feedback = Feedback.trim();
             
             if (Feedback.length() < 1){
-                System.out.println("\n*** Invalid answer *** Try Again");
+                this.console.println("\n*** Invalid answer *** Try Again");
                 continue;
                 
             }
@@ -40,11 +42,11 @@ public class ConversationView extends View {
         return Feedback;
     }
     
-    public void Show() {
+    public void Show() throws IOException {
         String value;
         
       
-            System.out.println(this.Sentence);
+            this.console.println(this.Sentence);
             value = this.getFeedback();
             this.doAction(value);
     }
@@ -52,8 +54,12 @@ public class ConversationView extends View {
     @Override
     public void doAction(String value) {
        do {
-           Show ();
-            getFeedback ();
+           try {
+               Show ();
+               getFeedback ();
+           } catch (IOException ex) {
+               Logger.getLogger(ConversationView.class.getName()).log(Level.SEVERE, null, ex);
+           }
             
         }while (!value.equals("Q"));
         

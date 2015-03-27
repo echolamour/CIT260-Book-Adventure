@@ -13,6 +13,10 @@ import bookadventure.model.Map;
 import bookadventure.model.Player;
 import bookadventure.model.Scene;
 import bookadventure.view.StartProgramView;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
 
 
 
@@ -26,6 +30,68 @@ public class BookAdventure {
     private static Game currentGame = null;
     private static Player player = null;
 
+    private static PrintWriter outfile = null;
+    private static BufferedReader infile = null;
+
+    private static PrintWriter logfile = null;
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        String object = null;
+        StartProgramView startProgramView = null;
+        try {
+            BookAdventure.infile = new BufferedReader(new InputStreamReader(System.in));
+            
+            BookAdventure.outfile = new PrintWriter(System.out, true);
+            
+            String filePath = "log.txt";
+            BookAdventure.logfile = new PrintWriter(filePath);
+            
+            startProgramView = new StartProgramView(object);
+            startProgramView.display();
+            return;
+        }catch (Throwable e){
+            System.out.println("Exception: " + e.toString() +
+                                "\nCause: " + e.getCause() +
+                                "\nMessage: " + e.getMessage());
+            e.printStackTrace();
+            startProgramView.display();
+        }
+        finally{
+            try{
+                if (BookAdventure.infile != null)
+                    BookAdventure.infile.close();
+                
+                if (BookAdventure.outfile != null)
+                    BookAdventure.outfile.close();
+                
+                if (BookAdventure.logfile != null)
+                    BookAdventure.logfile.close();
+            } catch (IOException ex){
+                System.out.println("Error closing files");
+                return;
+            }
+        }
+    }
+
+    public static PrintWriter getOutfile() {
+        return outfile;
+    }
+
+    public static void setOutfile(PrintWriter outfile) {
+        BookAdventure.outfile = outfile;
+    }
+
+    public static BufferedReader getInfile() {
+        return infile;
+    }
+
+    public static void setInfile(BufferedReader infile) {
+        BookAdventure.infile = infile;
+    }
+    
     public static Game getCurrentGame() {
         return currentGame;
     }
@@ -34,6 +100,14 @@ public class BookAdventure {
         BookAdventure.currentGame = currentGame;
     }
 
+    public static PrintWriter getLogfile() {
+        return logfile;
+    }
+
+    public static void setLogfile(PrintWriter logfile) {
+        BookAdventure.logfile = logfile;
+    }
+    
     public static Player getPlayer() {
         return player;
     }
@@ -46,22 +120,14 @@ public class BookAdventure {
     private static double xCoordinate;
     private static double yCoordinate;
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        String object = null;
-        StartProgramView startProgramView = new StartProgramView(object);
-        try {
-            startProgramView.display();
-        }catch (Throwable te){
-            System.out.println(te.getMessage());
-            te.printStackTrace();
-            startProgramView.startProgram();
-        }
+}
+
+    /*private static StartProgramView newStartProgramView() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-        
-        /*The following code was at one point part of the program, but now seems obsolete.
+    */
+    
+/*The following code was at one point part of the program, but now seems obsolete.
         
         
         Player playerOne = new Player();
@@ -99,11 +165,4 @@ public class BookAdventure {
         String sceneInfo = sceneOne.toString();
         System.out.println(sceneInfo);
         */
-    }
-
-    /*private static StartProgramView newStartProgramView() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    */
-    
 

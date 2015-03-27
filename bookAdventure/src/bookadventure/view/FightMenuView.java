@@ -26,19 +26,19 @@ public class FightMenuView extends View{
     }
     
      private void displayFight(){
-        System.out.println("*** displayFight function called ***");
+        this.console.println("*** displayFight function called ***");
     }
     
     private void displayRun(){
-        System.out.println("*** displayRun function called ***");
+        this.console.println("*** displayRun function called ***");
     }
     
     private void displayAttack(){
-        System.out.println("*** displayAttack function called ***");
+        this.console.println("*** displayAttack function called ***");
     }
     
     private void displayDefend(){
-        System.out.println("*** displayDefend function called ***");
+        this.console.println("*** displayDefend function called ***");
     }
 
     private void doAction(char selection) {
@@ -56,7 +56,7 @@ public class FightMenuView extends View{
                 this.displayDefend();
                 break;
             default:
-                System.out.println("\n*** Invalid Selection *** Try Again");
+                this.console.println("\n*** Invalid Selection *** Try Again");
                 break;
         }
     }
