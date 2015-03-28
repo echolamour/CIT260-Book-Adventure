@@ -26,16 +26,36 @@ public class HelpMenuView extends View{
             + "\n-------------------------------------------------------");
     }
     
+    private final String HELPMENU = "\n"
+            + "\n------------------------------------------------------"
+            + "\n| Help Menu                                          |"
+            + "\n------------------------------------------------------"
+            + "\nG - Goal of the Game"
+            + "\nA - Ask/Answer Question"
+            + "\nI - List of Inventory Items"
+            + "\n-------------------------------------------------------";
+    
+    public void displayHelpMenu(){
+        char selection = ' ';
+        
+        this.console.println(HELPMENU);
+        
+        String input = this.getInput();
+        selection = input.charAt(0);
+        
+        this.doAction(selection);
+    }
+    
     private void displayGoal(){
-        System.out.println("*** displayGoal function called ***");
+        this.console.println("*** displayGoal function called ***");
     }
     
     private void startChat(){
-        System.out.println("*** startChat function called ***");
+        this.console.println("*** startChat function called ***");
     }
     
     private void displayInventory(){
-        System.out.println("*** displayInventory function called ***");
+        this.console.println("*** displayInventory function called ***");
     }
 
     private void doAction(char selection) {
@@ -50,7 +70,7 @@ public class HelpMenuView extends View{
                 this.displayInventory();
                 break;
             default:
-                System.out.println("\n*** Invalid Selection *** Try Again");
+                this.console.println("\n*** Invalid Selection *** Try Again");
                 break;
         }
     }

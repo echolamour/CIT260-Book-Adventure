@@ -18,12 +18,48 @@ import bookadventure.model.Scene;
 import bookadventure.model.Scene.SceneType;
 import bookadventure.view.View;
 import java.awt.image.BufferedImage;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 
 /**
  *
  * @author Echo
  */
 public class GameControl extends View {
+
+    public static void saveGame(Game currentGame, String filepath) throws GameControlExceptions{
+        
+        try( FileOutputStream fops = new FileOutputStream(filepath)){
+            ObjectOutputStream output = new ObjectOutputStream(fops);
+            
+            output.writeObject(currentGame);
+        }
+        catch(IOException e){
+            throw new GameControlExceptions(e.getMessage());
+        }
+    }
+
+    public static void getSavedGame(String filepath) throws GameControlExceptions {
+        Game game = null;
+        
+        try( FileInputStream fips = new FileInputStream(filepath)) {
+            ObjectInputStream output = new ObjectInputStream(fips);
+            
+            game = (Game) output.readObject();
+        }
+        catch(FileNotFoundException fnfe){
+            throw new GameControlExceptions(fnfe.getMessage());
+        }
+        catch(Exception e){
+            throw new GameControlExceptions(e.getMessage());
+        }
+        
+        BookAdventure.setCurrentGame(game);
+    }
 
     public GameControl(String promptMessage) {
         super(promptMessage);

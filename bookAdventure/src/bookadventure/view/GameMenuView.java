@@ -51,32 +51,32 @@ public class GameMenuView extends View {
     private void viewInventory() throws GameControlException {
         InventoryItem[] inventory = GameControl.getSortedInventoryList();
         
-        System.out.println("\nList of Inventory Items");
-        System.out.println("Description" + "\t" + "Quantity");
+        this.console.println("\nList of Inventory Items");
+        this.console.println("Description" + "\t" + "Quantity");
         
         for (InventoryItem inventoryItem : inventory){
-            System.out.println(inventoryItem.getDescription() + "\t    "+ inventoryItem.getQuantityOfItem());
+            this.console.println(inventoryItem.getDescription() + "\t    "+ inventoryItem.getQuantityOfItem());
         }
     }
 
     private void displayMap() {
         Map map = BookAdventure.getCurrentGame().getMap();
-        System.out.println("Map\n");
+        this.console.println("Map\n");
         for (int row =0; row < 5; row++){
-            System.out.println("_______________\n");
+            this.console.println("_______________\n");
             for(int column = 0; column < 5; column++){
-                System.out.println("|");
+                this.console.println("|");
                 Location[][] locations = new Location[row][column];
                 boolean visited = false;
                 if (visited == true){
-                    System.out.println("X");
+                    this.console.println("X");
                 }
                 else{
-                    System.out.println(" ");
+                    this.console.println(" ");
                 }
-                System.out.println("|");
+                this.console.println("|");
             }
-            System.out.println("_______________\n");
+            this.console.println("_______________\n");
         }
     }   
 
