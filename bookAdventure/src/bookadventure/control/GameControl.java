@@ -31,7 +31,7 @@ import java.io.ObjectOutputStream;
  */
 public class GameControl extends View {
 
-    public static void saveGame(Game currentGame, String filepath) throws GameControlExceptions{
+    public static void saveGame(Game currentGame, String filepath) throws GameControlException{
         
         try( FileOutputStream fops = new FileOutputStream(filepath)){
             ObjectOutputStream output = new ObjectOutputStream(fops);
@@ -39,11 +39,11 @@ public class GameControl extends View {
             output.writeObject(currentGame);
         }
         catch(IOException e){
-            throw new GameControlExceptions(e.getMessage());
+            throw new GameControlException(e.getMessage());
         }
     }
 
-    public static void getSavedGame(String filepath) throws GameControlExceptions {
+    public static void getSavedGame(String filepath) throws GameControlException {
         Game game = null;
         
         try( FileInputStream fips = new FileInputStream(filepath)) {
@@ -52,10 +52,10 @@ public class GameControl extends View {
             game = (Game) output.readObject();
         }
         catch(FileNotFoundException fnfe){
-            throw new GameControlExceptions(fnfe.getMessage());
+            throw new GameControlException(fnfe.getMessage());
         }
         catch(Exception e){
-            throw new GameControlExceptions(e.getMessage());
+            throw new GameControlException(e.getMessage());
         }
         
         BookAdventure.setCurrentGame(game);

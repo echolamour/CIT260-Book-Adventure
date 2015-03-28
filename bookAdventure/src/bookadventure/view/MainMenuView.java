@@ -32,6 +32,7 @@ public class MainMenuView extends View{
             + "\nV - View Map"
             + "\nS - Save Game"
             + "\nQ - Quit Game"
+            + "\nR - Report of actors and locations"
             + "\n-------------------------------------------------------");
     }   
 
@@ -47,6 +48,7 @@ public class MainMenuView extends View{
             + "\nV - View Map"
             + "\nS - Save Game"
             + "\nQ - Quit Game"
+            + "\nR - Report of actors and locations"
             + "\n-------------------------------------------------------";
     
     private void doAction(char selection) throws MapControlException, GameControlException {
@@ -68,6 +70,9 @@ public class MainMenuView extends View{
                 break;
             case 'S':
                 this.saveGame();
+                break;
+            case 'R':
+                this.displayReport();
                 break;
             case 'Q':
                 return;
@@ -108,6 +113,30 @@ public class MainMenuView extends View{
         System.out.println("*** saveGame function called ***");
     }
     
+    private void displayReport() {
+        this.console.println("\n       List of Actors                          "
+            + "\nName                             Location                     " 
+            + "\nRabbit                              0, 1" 
+            + "\nMadHatter                           2, 0" 
+            + "\nTheCat                              0, 1" 
+            + "\nTheCatepillar                       3, 1" 
+            + "\nTheQueenofHearts                    1, 4" 
+            + "\nTheIceQueen                         4, 0" 
+            + "\ndemons                              4, 0" 
+            + "\ncritters                            0, 1" 
+            + "\nLegolas                             1, 3"
+            + "\nGandalf                             0, 4" 
+            + "\nGimili                              4, 2" 
+            + "\nAragon                              2, 4" 
+            + "\nSaruman                             3, 4" 
+            + "\norcs                                3, 0" 
+            + "\nurukai                              3, 0" 
+            + "\ngollum                              4, 0" 
+            + "\nElron                               1, 4"
+            + "\ngaladriel                           3,1");                                                                          
+     
+    }
+    
     @Override
     public void doAction(String obj) {
         String value = (String) obj;
@@ -135,6 +164,9 @@ public class MainMenuView extends View{
             case 'S':
                 this.saveGame();
                 break;
+            case 'R':
+                this.displayReport();
+                break;
             case 'Q':
                 return;
             default:
@@ -142,7 +174,7 @@ public class MainMenuView extends View{
                 break;
 
         this.console.println("\nEnter the file path for the file where the game "
-                                + "is going to be saved.");
+                                + "\nis going to be saved.");
         String filepath = this.getInput();
         
         try{
@@ -152,7 +184,8 @@ public class MainMenuView extends View{
 
         }
        }
-    }
+    
+}
 
      private void startExistingGame() {
          System.out.println("\n\nEnter the file path for the file.");
@@ -166,5 +199,6 @@ public class MainMenuView extends View{
             ErrorView.display("MainMenuView", ex.getMessage());
         }
     }
-  
 }
+
+    
