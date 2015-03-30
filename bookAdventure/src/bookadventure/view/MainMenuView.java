@@ -108,7 +108,7 @@ public class MainMenuView extends View{
     
     private void displayHelpMenu(){
         HelpMenuView helpMenu = new HelpMenuView(object);
-        helpMenu.display();
+        helpMenu.displayHelpMenu();
     }
     
     private void displayViewMap(){
@@ -190,6 +190,7 @@ public class MainMenuView extends View{
 
         
        }
+       
     
     }
 
