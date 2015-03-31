@@ -174,17 +174,6 @@ public class GameControl extends View {
            
     }
     
-    /*This block of code is in the wrong place please delete
-    private static Map createMap() throws MapControlException, GameControlExceptions{
-        Map map = new Map(5,5);
-        
-        Scene[] scenes = createScenes();
-        
-        GameControl.assignScenesToLocations(map, scenes);
-        
-        return map;
-    }*/
-    
     static Scene[] createScenes() throws MapControlException, GameControlException{
         BufferedImage image = null;
         
