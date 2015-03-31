@@ -137,6 +137,7 @@ public class MainMenuView extends View{
      
     }
     
+    
     @Override
     public void doAction(String obj) {
         String value = (String) obj;
