@@ -40,7 +40,7 @@ public class GameMenuView extends View {
             case 'S'://Save Game
             case 'E'://Exit to Main Menu
             case 'Q'://Quit Game
-                    
+                break;
         }
     }
 
@@ -58,7 +58,7 @@ public class GameMenuView extends View {
             this.console.println(inventoryItem.getDescription() + "\t    "+ inventoryItem.getQuantityOfItem());
         }
     }
-
+    
     private void displayMap() {
         Map map = BookAdventure.getCurrentGame().getMap();
         this.console.println("Map\n");
@@ -84,4 +84,6 @@ public class GameMenuView extends View {
     public void doAction(String value) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    
 }

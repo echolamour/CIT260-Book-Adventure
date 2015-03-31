@@ -9,6 +9,10 @@ import bookadventure.BookAdventure;
 import bookadventure.control.GameControl;
 import bookadventure.exceptions.GameControlException;
 import bookadventure.exceptions.MapControlException;
+import bookadventure.model.InventoryItem;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 //import java.util.Scanner;
@@ -32,7 +36,9 @@ public class MainMenuView extends View{
             + "\nV - View Map"
             + "\nS - Save Game"
             + "\nQ - Quit Game"
-            + "\nR - Report of actors and locations"
+            + "\nR - Report of actors and locations"            
+            + "\nP - Save file with inventory list"
+
             + "\n-------------------------------------------------------");
     }   
 
@@ -49,6 +55,7 @@ public class MainMenuView extends View{
             + "\nS - Save Game"
             + "\nQ - Quit Game"
             + "\nR - Report of actors and locations"
+            + "\nP - Save file with inventory list"
             + "\n-------------------------------------------------------";
     
     private void doAction(char selection) throws MapControlException, GameControlException {
@@ -101,7 +108,7 @@ public class MainMenuView extends View{
     
     private void displayHelpMenu(){
         HelpMenuView helpMenu = new HelpMenuView(object);
-        helpMenu.display();
+        helpMenu.displayHelpMenu();
     }
     
     private void displayViewMap(){
@@ -109,8 +116,16 @@ public class MainMenuView extends View{
     }
     
     private void saveGame(){
+        this.console.println("\nEnter the file path for the file where the game "
+                                + "\nis going to be saved.");
+        String filepath = this.getInput();
+        
+        try{
+            GameControl.saveGame(BookAdventure.getCurrentGame(), filepath);
+        } catch(Exception ex){
+            ErrorView.display("MainMenuView", ex.getMessage());
 
-        System.out.println("*** saveGame function called ***");
+        }
     }
     
     private void displayReport() {
@@ -174,20 +189,29 @@ public class MainMenuView extends View{
                 System.out.println("\n*** Invalid Selection *** Try Again");
                 break;
 
-        this.console.println("\nEnter the file path for the file where the game "
-                                + "\nis going to be saved.");
+        
+       }
+       
+    
+    }
+
+    private void printInventory() throws GameControlException {
+        this.console.println("\nEnter the file path for the file where the Inventory List is going to be saved.");
         String filepath = this.getInput();
         
-        try{
-            GameControl.saveGame(BookAdventure.getCurrentGame(), filepath);
-        } catch(Exception ex){
-            ErrorView.display("MainMenuView", ex.getMessage());
-
+        InventoryItem[] inventory = GameControl.getSortedInventoryList();
+                
+        try(FileOutputStream fops = new FileOutputStream(filepath)){
+            ObjectOutputStream output = new ObjectOutputStream(fops);
+            
+            output.writeObject(inventory);
         }
-       }
+        catch(IOException e){
+            throw new GameControlException(e.getMessage());
+        }
+                
+    }
     
-}
-
      private void startExistingGame() {
          System.out.println("\n\nEnter the file path for the file.");
          
