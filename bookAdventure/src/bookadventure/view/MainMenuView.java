@@ -112,7 +112,9 @@ public class MainMenuView extends View{
     
     private void displayViewMap(){
         GameMenuView mapDisplay = new GameMenuView(object);
+        this.console.println("Line 14 Works");
         mapDisplay.displayMap();
+        this.console.println("Line 15 Works");
     }
     
     private void saveGame(){

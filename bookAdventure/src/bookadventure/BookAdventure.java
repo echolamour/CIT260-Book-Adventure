@@ -92,6 +92,8 @@ public class BookAdventure {
         BookAdventure.infile = infile;
     }
     
+    
+    //Ths function is interfering with displayMap() in GameMenuView
     public static Game getCurrentGame() {
         return currentGame;
     }
