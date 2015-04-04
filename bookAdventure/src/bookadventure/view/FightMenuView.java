@@ -5,6 +5,7 @@
  */
 package bookadventure.view;
 
+import bookadventure.control.BossControl;
 import java.util.Scanner;
 
 /**
@@ -12,6 +13,8 @@ import java.util.Scanner;
  * @author Tashakrn9
  */
 public class FightMenuView extends View{
+    private Object BossControl;
+    private String object;
 
     public FightMenuView(String promptMessage) {
         super("\n"
@@ -19,7 +22,7 @@ public class FightMenuView extends View{
             + "\n| Fight Menu                                          |"
             + "\n------------------------------------------------------"
             + "\nF - Fight"
-            + "\nR - Run"
+            + "\nR - Strength"
             + "\nA - Attack"
             + "\nD - Defend"
             + "\n-------------------------------------------------------");
@@ -29,16 +32,19 @@ public class FightMenuView extends View{
         this.console.println("*** displayFight function called ***");
     }
     
-    private void displayRun(){
-        this.console.println("*** displayRun function called ***");
+    private void displayStrength(){
+        BossControl bosscontrol = new BossControl(object);
+        bosscontrol.displayStrength();
     }
     
     private void displayAttack(){
-        this.console.println("*** displayAttack function called ***");
+          BossControl bosscontrol = new BossControl(object);
+        bosscontrol.displayAttack();
     }
     
     private void displayDefend(){
-        this.console.println("*** displayDefend function called ***");
+          BossControl bosscontrol = new BossControl(object);
+        bosscontrol.displayDefend();
     }
 
     private void doAction(char selection) {
@@ -47,7 +53,7 @@ public class FightMenuView extends View{
                 this.displayFight();
                 break;
             case 'R':
-                this.displayRun();
+                this.displayStrength();
                 break;
             case 'A':
                 this.displayAttack();

@@ -17,7 +17,7 @@ public class CalulatingDamageView extends View {
         super(promptMessage);
     }
 
-    private double doAction(double attack, double defense, long strength) {
+    public double calulatingDamage(double attack, double defense, long strength) {
         double damage = (strength / ( attack - defense)) *  5;
 
                   return damage;
@@ -38,6 +38,10 @@ public class CalulatingDamageView extends View {
             te.printStackTrace();
             gameMenuView.display();
         }
+    }
+
+    void displayStrength() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     }
     
