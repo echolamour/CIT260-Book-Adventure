@@ -21,6 +21,10 @@ public class GameMenuView extends View {
         super(promptMessage);
     }
 
+    public void displayGameMenu (){
+        
+    }
+    
     //@Override
     public void doAction(char value) throws GameControlException {
         switch (value){
@@ -59,7 +63,7 @@ public class GameMenuView extends View {
         }
     }
     
-    private void displayMap() {
+    public void displayMap() {
         Map map = BookAdventure.getCurrentGame().getMap();
         this.console.println("Map\n");
         for (int row =0; row < 5; row++){

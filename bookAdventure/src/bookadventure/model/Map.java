@@ -21,7 +21,7 @@ public class Map implements Serializable{
     public Map() {
     }
     
-    //Should this be in MapView? If so change System.out to this.console
+    //For questions about this function refer to Assignment 9
     public Map(int noOfRows, int noOfColumns){
         if (noOfRows < 1 || noOfColumns < 1){
             System.out.println("The number of rows & columns must be > zero");

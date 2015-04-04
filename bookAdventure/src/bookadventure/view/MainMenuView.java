@@ -15,7 +15,6 @@ import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-//import java.util.Scanner;
 
 /**
  *
@@ -103,7 +102,7 @@ public class MainMenuView extends View{
     
     private void displayFightMenu(){
         FightMenuView  fightMenu = new FightMenuView(object);
-        fightMenu.display();
+        fightMenu.displayFight();
     }
     
     private void displayHelpMenu(){
@@ -112,7 +111,10 @@ public class MainMenuView extends View{
     }
     
     private void displayViewMap(){
-        this.console.println("*** displayViewMap function called ***");
+        GameMenuView mapDisplay = new GameMenuView(object);
+        this.console.println("Line 14 Works");
+        mapDisplay.displayMap();
+        this.console.println("Line 15 Works");
     }
     
     private void saveGame(){

@@ -60,12 +60,15 @@ public class HelpMenuView extends View{
 
     private void doAction(char selection) {
         switch (selection){
+            case 'g':
             case 'G':
                 this.displayGoal();
                 break;
+            case 'a':
             case 'A':
                 this.startChat();
                 break;
+            case 'i':
             case 'I':
                 this.displayInventory();
                 break;

@@ -28,7 +28,7 @@ public class FightMenuView extends View{
             + "\n-------------------------------------------------------");
     }
     
-     private void displayFight(){
+     public void displayFight(){
         this.console.println("*** displayFight function called ***");
     }
     
