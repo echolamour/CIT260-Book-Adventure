@@ -45,7 +45,7 @@ public class BossControlTest {
         double defense = 50.0;
         
         double expResult = 15.0;
-        BossControl instance = new BossControl();
+        FightBoss instance = new FightBoss();
         
         double result = instance.fightBoss(attack, defense, strength);
         assertEquals(expResult, result, 0000.0001);
@@ -165,6 +165,16 @@ public class BossControlTest {
          result = instance.fightBoss(attack, defense, strength);
         assertEquals(expResult, result, 000.0001);
         
+    }
+
+    private static class FightBoss {
+
+        public FightBoss() {
+        }
+
+        private double fightBoss(double attack, double defense, long strength) {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
     }
     
 }

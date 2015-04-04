@@ -16,6 +16,9 @@ public class BossControl {
     public BossControl(String object) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+   
+
     public double calulatingDamage(double attack, double defense, long strength) {
         double damage = (strength / ( attack - defense)) *  5;
 
