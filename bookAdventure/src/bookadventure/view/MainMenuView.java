@@ -100,10 +100,7 @@ public class MainMenuView extends View{
         gameMenuView.display();
     }
     
-    private void displayFightMenu(){
-        FightMenuView  fightMenu = new FightMenuView(object);
-        fightMenu.displayFight();
-    }
+   
     
     private void displayHelpMenu(){
         HelpMenuView helpMenu = new HelpMenuView(object);
@@ -225,6 +222,19 @@ public class MainMenuView extends View{
         catch (Exception ex){
             ErrorView.display("MainMenuView", ex.getMessage());
         }
+    }
+
+    
+     private void displayFightMenu() {
+        this.console.println("\n"
+            + "\n------------------------------------------------------"
+            + "\n| Fight Menu                                          |"
+            + "\n------------------------------------------------------"
+            + "\nR - Strength"
+            + "\nA - Attack"
+            + "\nD - Defend"
+            + "\n-------------------------------------------------------");
+    
     }
 }
 

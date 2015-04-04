@@ -13,7 +13,7 @@ import java.util.Scanner;
  * @author Tashakrn9
  */
 public class FightMenuView extends View{
-    private Object BossControl;
+    private Object CalulatingDamageView;
     private String object;
 
     public FightMenuView(String promptMessage) {
@@ -21,15 +21,10 @@ public class FightMenuView extends View{
             + "\n------------------------------------------------------"
             + "\n| Fight Menu                                          |"
             + "\n------------------------------------------------------"
-            + "\nF - Fight"
             + "\nR - Strength"
             + "\nA - Attack"
             + "\nD - Defend"
             + "\n-------------------------------------------------------");
-    }
-    
-     public void displayFight(){
-        this.console.println("*** displayFight function called ***");
     }
     
     private void displayStrength(){
@@ -49,9 +44,7 @@ public class FightMenuView extends View{
 
     private void doAction(char selection) {
         switch (selection){
-            case 'F':
-                this.displayFight();
-                break;
+            
             case 'R':
                 this.displayStrength();
                 break;
